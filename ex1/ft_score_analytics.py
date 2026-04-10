@@ -1,5 +1,11 @@
 import sys
 
+def is_number(s: str) -> bool:
+    try:
+        int(s)
+        return True
+    except ValueError:
+        return False
 
 def main():
     if len(sys.argv) == 1:
@@ -11,21 +17,23 @@ def main():
             int_max = max(num)
             int_min = min(num)
             plus = 0
-            i = len(sys.argv[1:])
+            i = int(len(sys.argv[1:]))
             print("=== Player Score Analytics ===")
             print(f"score processed: {num}")
             print(f"total players: {i}")
             for n in num:
                 plus += n
             print(f"total score: {plus}")
-            print(f"Average score: {plus / i}")
+            print(f"Average score: {plus / i:.1f}")
             print(f"High score: {int_max}")
-            print(f"fow score: {int_min}")
-            print(f"Score range: {int_max - int_min}")
+            print(f"Low score: {int_min}")
+            print(f"Score range: {int_max - int_min}\n")
 
         except ValueError:
-            print("the points have to be numbers")
-
+            for arg in sys.argv[1:]:
+                if is_number(arg) == False:
+                    print(f"Invalid parameter: {arg}")
+            print("No scores provided. Usage: python3 ft_score_analytics.py <score1> <score2> ...")
 
 if __name__ == "__main__":
     main()
