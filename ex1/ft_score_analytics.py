@@ -1,11 +1,13 @@
 import sys
 
+
 def is_number(s: str) -> bool:
     try:
         int(s)
         return True
     except ValueError:
         return False
+
 
 def main():
     if len(sys.argv) == 1:
@@ -33,7 +35,9 @@ def main():
             for arg in sys.argv[1:]:
                 if is_number(arg) == False:
                     print(f"Invalid parameter: {arg}")
-            print("No scores provided. Usage: python3 ft_score_analytics.py <score1> <score2> ...")
+            print("No scores provided. Usage: python3 "
+                  "ft_score_analytics.py <score1> <score2> ...")
+
 
 if __name__ == "__main__":
     main()

@@ -1,10 +1,13 @@
 import math
 
+
 def get_player_pos():
     print("Get a first set of coordinates")
     while True:
         spawn_coordinate = (0, 0, 0)
-        coordinate = input("Enter new coordinates as floats in format 'x,y,z': ")
+        coordinate = input(
+            "Enter new coordinates as floats in format 'x,y,z': "
+            )
         try:
             coord = (coordinate.split(","))
             for i in range(3):
@@ -21,7 +24,9 @@ def get_player_pos():
             print("Invalid syntax")
     print("\nGet a second set of coordinates")
     while True:
-        coordinate = input("Enter new coordinates as floats in format 'x,y,z': ")
+        coordinate = input(
+            "Enter new coordinates as floats in format 'x,y,z': "
+            )
         try:
             coord = (coordinate.split(","))
             for i in range(3):
@@ -33,6 +38,7 @@ def get_player_pos():
             break
         except ValueError:
             print("Invalid syntax")
+
 
 if __name__ == "__main__":
     print("=== Game Coordinate System ===\n")

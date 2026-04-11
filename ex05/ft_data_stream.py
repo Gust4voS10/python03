@@ -18,7 +18,7 @@ def consume_event(data_list: list) -> Generator[tuple[str, str], None, None]:
         yield data_list.pop(index)
 
 
-def main():
+def main() -> None:
     event_stream = gen_event()
     for i in range(1000):
         event = next(event_stream)
