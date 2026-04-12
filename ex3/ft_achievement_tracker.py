@@ -7,10 +7,10 @@ def main():
                     "Treasure Hunter", "Unstoppable", "First Steps",
                     "Collector Supreme",
                     "Untouchable", "Sharp Mind", "Boss Slayer"}
-    Alice: set = set()
-    Bob: set = set()
-    Charlie: set = set()
-    Dylan: set = set()
+    Alice = set()
+    Bob = set()
+    Charlie = set()
+    Dylan = set()
     for _ in range(7):
         Alice.add(random.choice(list(achievements)))
         Bob.add(random.choice(list(achievements)))

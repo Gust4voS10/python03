@@ -3,7 +3,7 @@ import sys
 
 def main():
     print("=== Command Quest ===")
-    count: int = len(sys.argv)
+    count = len(sys.argv)
     if len(sys.argv) == 1:
         print("No arguments provided!")
     print(f"program name: {sys.argv[0]}")

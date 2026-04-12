@@ -28,7 +28,7 @@ def main():
     for item, quantity in inventory.items():
         percentage = (quantity / total) * 100
         print(f"{item}: {quantity} ({percentage:.2f}%)")
-    list_items_random: list[str] = ["magic_item", "boot", "breastplate", "bow"]
+    list_items_random = ["magic_item", "boot", "breastplate", "bow"]
     item_max = max(inventory, key=inventory.get)
     print(f"Item most abundant: {item_max}"
           f" with quantity {inventory[item_max]}")

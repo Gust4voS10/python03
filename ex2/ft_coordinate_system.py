@@ -1,6 +1,11 @@
 import math
 
 
+class Input_erro(Exception):
+    def __init__(self, msg="Invalid syntax"):
+        super().__init__(msg)
+
+
 def get_player_pos():
     print("Get a first set of coordinates")
     while True:
@@ -10,6 +15,8 @@ def get_player_pos():
             )
         try:
             coord = (coordinate.split(","))
+            if len(coord) != 3:
+                raise Input_erro
             for i in range(3):
                 coord[i] = float(coord[i])
             list_coord = tuple(coord)
@@ -21,14 +28,19 @@ def get_player_pos():
             print(f"Distance from spawn point: {dist:.4f}")
             break
         except ValueError:
-            print("Invalid syntax")
+            print(f"Error on parameter '{coord[i]}': "
+                  f"could not convert string to float: '{coord[i]}'")
+        except Input_erro as a:
+            print(a)
     print("\nGet a second set of coordinates")
     while True:
-        coordinate = input(
-            "Enter new coordinates as floats in format 'x,y,z': "
-            )
         try:
+            coordinate = input(
+                "Enter new coordinates as floats in format 'x,y,z': "
+                )
             coord = (coordinate.split(","))
+            if len(coord) != 3:
+                raise Input_erro
             for i in range(3):
                 coord[i] = float(coord[i])
             list_coord = tuple(coord)
@@ -37,7 +49,10 @@ def get_player_pos():
             print(f"Distance between the 2 sets of coordinates: {dist:.4f}")
             break
         except ValueError:
-            print("Invalid syntax")
+            print(f"Error on parameter '{coord[i]}': "
+                  f"could not convert string to float: '{coord[i]}'")
+        except Input_erro as a:
+            print(a)
 
 
 if __name__ == "__main__":
